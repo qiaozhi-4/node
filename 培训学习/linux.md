@@ -15,12 +15,6 @@
 
 
 
-![](C:\Users\18890\Documents\笔记\Linux-目录结构1.jpg)
-
-![](C:\Users\18890\Documents\笔记\Linux-目录结构2.jpg)
-
-
-
 
 
 
