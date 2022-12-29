@@ -1920,9 +1920,90 @@
 
 
 
+####  服务(service)管理 
+
+######  介绍 
+
+ 		服务(service) 本质就是进程，但是是运行在后台的，通常都会监听某个端口，等待其它程序的请求，比如(mysqld, sshd防火墙等)，因此我们又称为守护进程，是 Linux 中非常重要的知识点。 
+
+------------------
 
 
 
+######  service 管理指令 
+
+1. service 服务名 [start | stop | restart | reload | status] 
+2. 在 CentOS7.0 后 很多服务不再使用 service ,而是 systemctl (后面专门讲) 
+3. service 指令管理的服务在 /etc/init.d 查看 
+
+------
+
+
+
+######  service 管理指令案例 
+
+- 请使用 service 指令，查看，关闭，启动 network [注意：在虚拟系统演示，因为网络连接会关闭] 
+  - 指令: 
+    1. service network status 
+    2. service network stop 
+    3. service network start 
+
+------------------
+
+
+
+######  查看服务名
+
+命令 :  
+
+1. setup 			 可以看到全部。 
+2.  ls -l /etc/init.d    看到 service 指令管理的服务 
+
+--------------------
+
+
+
+######  服务的运行级别(runlevel)
+
+介绍
+
+Linux 系统有 7 种运行级别(runlevel)：常用的是级别 3 和 5 运行级别 
+
+0：系统停机状态，系统默认运行级别不能设为 0，否则不能正常启动 运行级别 
+
+1：单用户工作状态，root 权限，用于系统维护，禁止远程登陆 运行级别 
+
+2：多用户状态(没有 NFS)，不支持网络 运行级别 
+
+3：完全的多用户状态(有 NFS)，无界面，登陆后进入控制台命令行模式 运行级别 
+
+4：系统未使用，保留 运行级别 
+
+5：X11 控制台，登陆后进入图形 GUI 模式 运行级别 
+
+6：系统正常关闭并重启，默认运行级别不能设为 6，否则不能正常启动 
+
+
+
+ 开机的流程说明 
+
+![1672296104269](D:\笔记\linux.assets\开机的流程说明.png)
+
+---------------------
+
+
+
+######  CentOS7 后运行级别说明 
+
+ 在 /etc/initab 进行了简化 ，如下: 
+
+multi-user.target: analogous to runlevel 3 
+
+graphical.target: analogous to runlevel 5 
+
+查看当前运行级别:  systemctl get-default 
+
+设置运行级别(下次启动就是设置的):  systemctl set-default TARGET.target 
 
 
 
