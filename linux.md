@@ -2005,6 +2005,63 @@ graphical.target: analogous to runlevel 5
 
 设置运行级别(下次启动就是设置的):  systemctl set-default TARGET.target 
 
+-------------------
+
+
+
+######  chkconfig 指令 
+
+- 介绍 :  通过 chkconfig 命令可以给服务的各个运行级别设置自 启动/关闭 chkconfig 指令管理的服务在 /etc/init.d 查看 注意: Centos7.0 后，很多服务使用 systemctl 管理 
+
+-  基本语法 
+
+  1. 查看服务 :  chkconfig --list [| grep xxx]     或者      chkconfig 服务名 --list 
+  2. 修改服务 : chkconfig --level 5 服务名 on/off 
+
+-  案例演示 
+
+  -  对 network 服务 进行各种操作, 把 network 在 3 运行级别,关闭自启动 
+
+    关 : chkconfig --level 3 network off 
+
+    开 : chkconfig --level 3 network on 
+
+-  使用细节 
+
+   chkconfig 重新设置服务后自启动或关闭，需要重启机器 reboot 生效. 
+
+----------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
