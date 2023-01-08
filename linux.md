@@ -2034,7 +2034,41 @@ graphical.target: analogous to runlevel 5
 
 
 
+######  systemctl 管理指令 
 
+-  基本语法： systemctl [start | stop | restart | status] 服务名 
+
+  systemctl 指令管理的服务在 /usr/lib/systemd/system 查看 
+
+- 设置服务的自启动状态 
+
+  systemctl list-unit-files [ | grep 服务名] (查看服务开机启动状态, grep 可以进行过滤) 
+
+  systemctl enable 服务名 (设置服务开机启动) 
+
+  systemctl disable 服务名 (关闭服务开机启动) 
+
+  systemctl is-enabled 服务名 (查询某个服务是否是自启动的) 
+
+-  应用案例 
+
+  -  查看当前防火墙的状况，关闭防火墙和重启防火墙。防火墙服务名 => firewalld.service 
+
+    systemctl status firewalld; 
+
+    systemctl stop firewalld; 
+
+    systemctl start firewalld 
+
+- 使用细节
+
+  关闭或者启用防火墙后，立即生效。[telnet 测试 某个端口即可] 
+
+  这种方式只是临时生效，当重启系统后，还是回归以前对服务的设置。 
+
+  如果希望设置某个服务自启动或关闭永久生效，要使用 systemctl [enable|disable] 服务名  
+
+  
 
 
 
