@@ -2068,9 +2068,36 @@ graphical.target: analogous to runlevel 5
 
   如果希望设置某个服务自启动或关闭永久生效，要使用 systemctl [enable|disable] 服务名  
 
-  
+----------------------
 
 
+
+######  firewall 指令 
+
+- 问题: 在真正的生产环境，往往需要将防火墙打开，但问题来了，如果我们把防火墙打开，那么外部请求数据包就不能跟服务器监听端口通讯。这时，需要打开指定的端口。比如 80、22、8080 等，这个又怎么做呢？ 
+
+- 基本使用
+
+  1. 打开端口: firewall-cmd --permanent --add-port=端口号/协议
+  2. 关闭端口: firewall-cmd --permanent --remove-port=端口号/协议 
+  3. 重新载入,才能生效 : firewall-cmd --reload 
+  4. 查询端口是否开放: firewall-cmd --query-port=端口/协议 
+
+-  应用案例 
+
+  1. 启用防火墙， 测试 111 端口是否能 telnet , 
+
+     telnet 192.168.113.200 111   失败
+
+  2. 开放 111 端口 
+
+     firewall-cmd --permanent --add-port=111/tcp ; 需要 firewall-cmd --reload
+
+  3. 再次关闭 111 端口 
+
+     firewall-cmd --permanent --remove-port=111/tcp ; 需要 firewall-cmd --reload 
+
+-----------------------
 
 
 
