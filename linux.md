@@ -2152,6 +2152,42 @@ graphical.target: analogous to runlevel 5
 
 
 
+######  监控网络状态  netstat 
+
+-  基本语法 
+
+   netstat [选项] 
+
+-  选项说明 
+
+   -an 按一定顺序排列输出
+
+   -p 显示哪个进程在调用 
+
+-  应用案例 
+
+  请查看服务名为 sshd 的服务的信息。 
+
+  netstat -anp | grep sshd 
+
+---------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
