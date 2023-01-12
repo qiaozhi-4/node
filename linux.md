@@ -2286,6 +2286,32 @@ graphical.target: analogous to runlevel 5
 
 
 
+####  yum 
+
+-  介绍： 
+
+   Yum 是一个 Shell 前端软件包管理器。基于 RPM 包管理，能够从指定的服务器自动 下载 RPM 包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包。 
+
+-  yum 的基本指令 
+
+   查询 yum 服务器是否有需要安装的软件 
+
+   yum list|grep xx
+
+-  安装指定的 yum 包 
+
+   yum install xxx 
+
+-  yum 应用实例： 
+
+  请使用 yum 的方式来安装 firefox 
+
+  yum list | grep firefox 
+
+  yum install firefox 
+
+-----------------------
+
 
 
 
