@@ -2459,6 +2459,72 @@ graphical.target: analogous to runlevel 5
 
 
 
+####  设置环境变量 
+
+######  基本语法 
+
+1. export 变量名=变量值 （功能描述：将 shell 变量输出为环境变量/全局变量）
+2. source 配置文件 （功能描述：让修改后的配置信息立即生效） 
+3. echo $变量名 （功能描述：查询环境变量的值） 
+
+---------------------------
+
+
+
+######  快速入门
+
+1. 在/etc/profile 文件中定义 TOMCAT_HOME 环境变量
+
+   vim /etc/profile  --打开环境变量配置文件
+
+   export TOMCAT_HOME=/opt/tomcat  --在配置文件中输入
+
+2. 查看环境变量 TOMCAT_HOME 的值 
+
+   source /etc/profile  --刷新配置文件
+
+   echo  $TOMCAT_HOME  --查看环境变量的值
+
+3. 在另外一个 shell 程序中使用 TOMCAT_HOME 
+
+   打开一个shell文件和普通变量使用方法一样
+
+   比如 ： echo "TOMCAT_HOME=$TOMCAT_HOME"
+
+   
+
+   注意：在输出 TOMCAT_HOME 环境变量前，需要让其生效(也就是编辑之后刷新一下这个文件) 
+
+   source /etc/profile 
+
+   shell 脚本的多行注释 :<<!   内容  !
+
+-------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
