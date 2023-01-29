@@ -2326,7 +2326,7 @@ graphical.target: analogous to runlevel 5
 
 #  Shell 编程 
 
-####  17.1 为什么要学习 Shell 编程 
+####  为什么要学习 Shell 编程 
 
 1. Linux 运维工程师在进行服务器集群管理时，需要编写 Shell 程序来进行服务器管理。
 2. 对于 JavaEE 和 Python 程序员来说，工作的需要，你的老大会要求你编写一些 Shell 脚本进行程序或者是服务器的维护，比如编写一个定时备份数据库的脚本。 
@@ -2363,7 +2363,7 @@ graphical.target: analogous to runlevel 5
 
 
 
-######  编写第一个 Shell 脚 
+######  编写第一个 Shell 脚本 
 
  需求说明：创建一个 Shell 脚本，输出 hello world! 
 
@@ -2379,6 +2379,83 @@ graphical.target: analogous to runlevel 5
 
 1. (输入脚本的绝对路径或相对路径) 说明：首先要赋予 helloworld.sh 脚本的+x 权限， 再执行脚本 比如 ./hello.sh 或者使用绝对路径 /root/shcode/hello.sh
 2. (sh+脚本) 说明：不用赋予脚本+x 权限，直接执行即可。 比如 sh hello.sh , 也可以使用绝对路径 
+
+-----------------
+
+
+
+
+
+
+
+####  Shell 的变量 
+
+****
+
+######  Shell 变量介绍 
+
+1. Linux Shell 中的变量分为，系统变量和用户自定义变量。
+2. 系统变量：$HOME、$PWD、$SHELL、$USER 等等，比如： echo $HOME 等等..
+3. 显示当前 shell 中所有变量：set 
+
+--------------
+
+
+
+######  shell 变量的定义 
+
+-  shell 变量的定义 
+
+  -  定义变量的规则 
+    1. 变量名称可以由字母、数字和下划线组成，但是不能以数字开头。5A=200(×)
+    2. 等号两侧不能有空格
+    3. 变量名称一般习惯为大写， 这是一个规范，我们遵守即可 
+  -  将命令的返回值赋给变量
+    1. A=`date`反引号，运行里面的命令，并把结果返回给变量 A 
+    2. A=$(date) 等价于反引号 
+
+- 基本语法
+
+  1. 定义变量：变量名=值 
+  2. 撤销变量：unset 变量
+  3. 声明静态变量：readonly 变量，注意：不能 unset 
+
+-  快速入门 
+
+  1. 定义变量 A
+
+     A=100
+     echo A=$A
+
+  2. 撤销变量 A 
+
+     unset A
+
+  3. 声明静态的变量 B=2，不能 unset 
+
+     readonly B=2
+     echo "B=$B"
+
+  4.  将指令返回的结果赋给变量 
+
+     ```shell
+     C=`date` 
+     D=$(date) 
+     echo "C=$C" 
+     echo "D=$D" 
+     ```
+
+  5.  使用环境变量 TOMCAT_HOME 
+
+      echo "tomcat_home=$TOMCAT_HOME" 
+
+  6.  可把变量提升为全局环境变量，可供其他 shell 程序使用 
+
+------------------
+
+
+
+
 
 
 
