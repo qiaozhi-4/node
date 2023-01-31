@@ -2534,6 +2534,10 @@ graphical.target: analogous to runlevel 5
 
 ![1675070544352](D:\笔记\linux.assets\位置参数变量—1.png)
 
+-----------------------------
+
+
+
 
 
 
