@@ -440,6 +440,8 @@ SELECT * FROM student_day04 RIGHT JOIN class_day04 c ON class_id=c.id;
 
 
 
+
+
 ## 索引：
 
 ```sql
@@ -490,19 +492,25 @@ SELECT VERSION();
 
 1. 字符串函数：
    	length('abc123') -- 长度
-      	concat('abc', 100) -- 拼接
-      	lower('abCD')/upper('xyz') -- 大小写转换
-      	ltrim/rtrim/trim(' x ') -- 修剪左、右、前后空格
-      	substr('abc123',2,3) -- 第2个位置开始截取长度3的子串，下标1开始
-      	repeat/reverse/strcmp -- 重复、反向、比较等
+    concat('abc', 100) -- 拼接
+    lower('abCD')/upper('xyz') -- 大小写转换
+    ltrim/rtrim/trim(' x ') -- 修剪左、右、前后空格
+    substr('abc123',2,3) -- 第2个位置开始截取长度3的子串，下标1开始
+    repeat/reverse/strcmp -- 重复、反向、比较等
+    
+     instr( string1, string2, start_position,nth_appearance )  
+    
+    字
+    
 2. 日期函数
-   	curdate()/current_date() -- 当前日期
+    curdate()/current_date() -- 当前日期
       	curtime()/current_time() -- 当前时间
       	now() -- 当前日期+时间
       	current_timestamp() -- 当前时间戳：日期和时间
       	adddate('2021-11-11', interval 10 day) -- 计算日期：day天、year年、month月、hour时、minute分、second秒
+
 3. 其他函数：
-   	if(条件, '成立结果', '不成立结果') -- 条件
+    if(条件, '成立结果', '不成立结果') -- 条件
       	ifnull(username, '空') -- 如果username为null显示为'空'，否则为username
       	conv(100, 10, 2) -- 将100从10进制转为2进制
       	version() -- 数据库版本
