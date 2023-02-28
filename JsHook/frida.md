@@ -1,3 +1,16 @@
+## 判断模块是否执行
+
+```js
+Module.ensureInitialized(name)
+确保已运行指定模块的初始化程序。这在早期检测期间很重要，即代码在进程生命周期的早期运行，以便能够安全地与 API 交互。一个这样的用例是与给定模块提供的ObjC类交互。
+```
+
+-----------------------------
+
+
+
+
+
 ## 获取地址
 
 #### 获取模块地址
@@ -6,6 +19,10 @@
 //获取 libil2cpp.so 的首地址
 var address = Module.findBaseAddress('libil2cpp.so')
 ```
+
+---------------------------------
+
+
 
 #### 获取函数地址
 
@@ -18,6 +35,8 @@ var offset = '0x013eeda0' //偏移量
 var address = Module.findBaseAddress('libil2cpp.so')
 var targetFunc = address.add(offset)
 ```
+
+-----------------------
 
 
 
@@ -48,6 +67,8 @@ Interceptor.attach(targetFunc, {
 });
 ```
 
+------------------------------
+
 
 
 ## native 主动调用
@@ -57,4 +78,6 @@ var friendlyFunctionName = new NativeFunction(friendlyFunctionPtr, 'void', ['poi
 var returnValue = Memory.alloc(sizeOfLargeObject);
 friendlyFunctionName(returnValue, param1);
 ```
+
+-----------------------------
 
